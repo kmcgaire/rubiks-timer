@@ -10,6 +10,31 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var timerLabel: UILabel!
+
+    var seconds = 0.00
+    var timerIsStarted = false
+    var timer = Timer()
+    var startTime = Date()
+
+    @IBAction func timerButton(_ sender: Any) {
+        if timerIsStarted {
+            seconds = 0.00
+            timer.invalidate()
+            timerIsStarted = false
+        } else {
+            self.startTime = Date()
+            timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            timerIsStarted = true
+        }
+        
+        
+    }
+    
+    func updateTimer() {
+        timerLabel.text = "\(String(format: "%.2f", Date().timeIntervalSince(startTime)))"
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
