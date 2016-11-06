@@ -3,3 +3,5 @@ build/
 *.orig
 *.mode1v3
 *.pbxuser
+rubiks-timer.xcodeproj/project.xcworkspace/xcuserdata/*
+rubiks-timer.xcodeproj/xcuserdata/kmcgaire.xcuserdatad/xcdebugger/*
