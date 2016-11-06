@@ -22,6 +22,7 @@ class FirstViewController: UIViewController {
             seconds = 0.00
             timer.invalidate()
             timerIsStarted = false
+            timerLabel.text = "\(String(format: "%.2f", Date().timeIntervalSince(startTime)))"
         } else {
             self.startTime = Date()
             timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -33,7 +34,6 @@ class FirstViewController: UIViewController {
     
     func updateTimer() {
         timerLabel.text = "\(String(format: "%.2f", Date().timeIntervalSince(startTime)))"
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
